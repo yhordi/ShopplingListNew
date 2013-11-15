@@ -1,32 +1,58 @@
 $(document).ready(function () {
 
-	$("#noString").hide();
+    $("#noString").hide();
 
 
-	$("#add").click(function () {
-		var userItem = $("#userInput").val();
+    $("#add").click(function () {
+        var userItem = $("#userInput").val();
+        if ($.trim(userItem) !== '') {
+            $('ul').append('<li>' + " " + userItem + '</li>');
+            $('input').val('');
+            $('<input>', {
+                type: "checkbox",
+            }).prependTo('li:last-child').addClass(".cb");
+            $("#noString").hide();
+        } else $("#noString").show();
+    });
 
-		if (userItem === "") {
-            $("#noString").show();
+    $("#userInput").keydown(function(e){
+        if(e.which == 13) {
+        var userItem = $("#userInput").val();
+        if ($.trim(userItem) !== '') {
+            $('ul').append('<li>' + " " + userItem + '</li>');
+            $('input').val('');
+            $('<input>', {
+                type: "checkbox",
+            }).prependTo('li:last-child').addClass(".cb");
+            $("#noString").hide();
+        } else $("#noString").show();
+    }
+    });
 
-        } 
-        else if (/\S/.test(userItem)) {
-    // string is not empty and not just whitespace
+
+    $("#clearChecked").click(function () {
+        $("li.bonus").remove();
+    });
+    
+    $("#clearAll").click(function () {
+        $("li").remove();
+    });
+
+        $('body').on('click', 'input:checkbox', function () {
+            $(this).parent("li").toggleClass("bonus");
+
+    });
+
+        if ($('checkbox:checked').is('checked')) {
+            $('body').on('click', 'input:checkbox', function(){
+            $(this).parent("li").removeClass("bonus");
+            });
         }
-        else if (userItem = String){
-                $('ul').append('<li>'+$('input').val()+'</li>');
-            	$('input').val('');
-            	$('<input>', {
-            		type:"checkbox",
-        		}).prependTo('li:last-child').addClass(".cb");
-        			$("#noString").hide();
-            }
-		
-
-	});
-   //$('body').on('click', 'li', function(){
-            //$(this).addClass("checked");
-        //});
-
 
 });
+
+
+    
+
+
+
