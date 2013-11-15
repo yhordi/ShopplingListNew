@@ -47,11 +47,13 @@ table {
 	border-spacing: 0;
 }
 
+
+
 body {
 	background: url("images/redlasers.jpg");
 	background-attachment:relative;
 	font-family: 'Orbitron', sans-serif;
-	color: ;
+
 }
 
 h1 {
@@ -71,7 +73,7 @@ h1 {
 	-webkit-box-shadow: inset 0px -1px 28px rgba(0, 255, 0, 0.75);
 	-moz-box-shadow:   inset 0px -1px 28px rgba(0, 255, 0, 0.75);
 	box-shadow:       inset  0px -1px 28px rgba(0, 255, 0, 0.75);
-	background-color: #4c4c4c;
+	background-color: rgb(145, 145, 145, 255);
 	margin-left: auto;
 	margin: auto;
 	border-radius: 15px;
@@ -91,6 +93,7 @@ button {
 button:hover {
 	background-color: green;
 	border: 2px solid #00ff11;
+	color: white;
 }
 
 li {
@@ -99,11 +102,9 @@ li {
 
 }
 
-input {
-	background-color: 
-}
 
-.checked {
+.bonus {
 	text-decoration: line-through;
 	color: #898888;
 }
+
